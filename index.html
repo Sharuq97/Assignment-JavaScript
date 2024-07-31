@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>My Movies</h1>
+    <!--Blanks to fill in-->
+    <form id="movieForm">
+        <input type="hidden" id="movieId">
+        <label>Title:<input type="text" id="title" required></label>
+        <label>Director:<input type="text" id="director" required></label>
+        <label>Year:<input type="number" id="year" required></label>
+        <label>Popularity:<select id="popularity" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </label>
+        <button type="submit">Add Movie</button>
+    </form>
+    <!--subsequent answers-->
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Director</th>
+                <th>Year</th>
+                <th>Popularity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="movieTableBody">
+            <!-- Movie list will be populated here -->
+        </tbody>
+    </table>
+    <!--axios-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.js" integrity="sha512-vHNHepeQWwAggJlhEk932jRS5sNdn/Nn4F+w4TpXW5dA+04qnd3e7YpfXo6auWhFG6z3FVhmScG4ovtF+qYeZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--linking js-->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
