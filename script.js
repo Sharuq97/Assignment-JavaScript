@@ -6,16 +6,13 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
     const year = document.getElementById('year').value.trim();
     const popularity = document.getElementById('popularity').value;
 
-    // Validate inputs, ensure no wrong entry is included
+    // Validate inputs
     const errors = [];
     if (title === '') {
         errors.push('Title is required.');
     }
     if (director === '') {
         errors.push('Director is required.');
-    }
-    if (!year.match(/^\d{4}$/) || parseInt(year) < 1800 || parseInt(year) > new Date().getFullYear()) {
-        errors.push('Please enter a valid year.');
     }
     if (!popularity || isNaN(popularity) || popularity < 1 || popularity > 5) {
         errors.push('Popularity must be a number between 1 and 5.');
@@ -56,9 +53,9 @@ document.getElementById('movieTableBody').addEventListener('click', function(eve
         decreasePopularity(index);
     }
 });
-// delete pop-up
+
 function confirmDelete(index) {
-    const confirmDelete = confirm('Dude, you want to delete this?');
+    const confirmDelete = confirm('Dude, sure you want to delete this movie? Think again bruh...!');
     if (confirmDelete) {
         deleteMovie(index);
     }

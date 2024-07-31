@@ -31,19 +31,19 @@ async function saveMovies() {
         console.error('Error saving movies:', error.response.data);
     }
 }
-// adding part
+
 function addMovie(movie) {
     movies.push(movie);
     saveMovies();
     renderMovies();
 }
-// updating part
+
 function updateMovie(index, updatedMovie) {
     movies[index] = updatedMovie;
     saveMovies();
     renderMovies();
 }
-// deleting part
+
 function deleteMovie(index) {
     movies.splice(index, 1);
     saveMovies();
