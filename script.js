@@ -35,6 +35,7 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
     } else {
         updateMovie(editingIndex, movie);
         editingIndex = null;
+        document.querySelector('form button').textContent = 'Add Movie';
     }
 
     // Clear the form
@@ -55,7 +56,7 @@ document.getElementById('movieTableBody').addEventListener('click', function(eve
 });
 
 function confirmDelete(index) {
-    const confirmDelete = confirm('Dude, sure you want to delete this movie? Think again bruh...!');
+    const confirmDelete = confirm('Are you sure you want to delete this movie?');
     if (confirmDelete) {
         deleteMovie(index);
     }
@@ -68,4 +69,52 @@ function editMovie(index) {
     document.getElementById('year').value = movie.year;
     document.getElementById('popularity').value = movie.popularity;
     editingIndex = index;
+
+    // Set the form button text to "Update Movie"
+    document.querySelector('form button').textContent = 'Update Movie';
 }
+
+function addMovie(movie) {
+    movies.push(movie);
+    saveMovies();
+    renderMovies();
+}
+
+function updateMovie(index, updatedMovie) {
+    movies[index] = updatedMovie;
+    saveMovies();
+    renderMovies();
+
+    // Reset the form button text to "Add Movie"
+    document.querySelector('form button').textContent = 'Add Movie';
+}
+
+function renderMovies() {
+    const movieTableBody = document.getElementById('movieTableBody');
+    movieTableBody.innerHTML = '';
+
+    movies.forEach((movie, index) => {
+        const row = document.createElement('tr');
+        row.dataset.index = index;
+
+        row.innerHTML = `
+            <td data-label="Title">${movie.title}</td>
+            <td data-label="Director">${movie.director}</td>
+            <td data-label="Year">${movie.year}</td>
+            <td data-label="Popularity">
+                <span>${movie.popularity}</span>
+                <button>+</button>
+                <button>-</button>
+            </td>
+            <td data-label="Actions">
+                <button>Edit</button>
+                <button>Delete</button>
+            </td>
+        `;
+
+        movieTableBody.appendChild(row);
+    });
+}
+
+// Fetch movies when the script loads
+fetchMovies();
