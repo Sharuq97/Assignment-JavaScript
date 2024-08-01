@@ -50,22 +50,6 @@ function deleteMovie(index) {
     saveMovies();
     renderMovies();
 }
-//increase and decrease ---------------------------------------------
-function increasePopularity(index) {
-    if (movies[index].popularity < 5) {
-        movies[index].popularity++;
-    }
-    saveMovies();
-    renderMovies();
-}
-
-function decreasePopularity(index) {
-    if (movies[index].popularity > 1) {
-        movies[index].popularity--;
-    }
-    saveMovies();
-    renderMovies();
-}
 // rendermovies ------------------------------------------------------
 function renderMovies() {
     const movieTableBody = document.getElementById('movieTableBody');
@@ -81,8 +65,6 @@ function renderMovies() {
             <td data-label="Year">${movie.year}</td>
             <td data-label="Popularity">
                 <span>${movie.popularity}</span>
-                <button>+</button>
-                <button>-</button>
             </td>
             <td data-label="Actions">
                 <button>Edit</button>

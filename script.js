@@ -45,11 +45,7 @@ document.getElementById('movieTableBody').addEventListener('click', function(eve
         editMovie(index);
     } else if (event.target.textContent === 'Delete') {
         confirmDelete(index);
-    } else if (event.target.textContent === '+') {
-        increasePopularity(index);
-    } else if (event.target.textContent === '-') {
-        decreasePopularity(index);
-    }
+    } 
 });
 
 // confirm delete pop-up
@@ -86,33 +82,3 @@ function updateMovie(index, updatedMovie) {
     // Reset the form button text to "Add Movie"
     document.querySelector('form button').textContent = 'Add Movie';
 }
-
-function renderMovies() {
-    const movieTableBody = document.getElementById('movieTableBody');
-    movieTableBody.innerHTML = '';
-
-    movies.forEach((movie, index) => {
-        const row = document.createElement('tr');
-        row.dataset.index = index;
-
-        row.innerHTML = `
-            <td data-label="Title">${movie.title}</td>
-            <td data-label="Director">${movie.director}</td>
-            <td data-label="Year">${movie.year}</td>
-            <td data-label="Popularity">
-                <span>${movie.popularity}</span>
-                <button>+</button>
-                <button>-</button>
-            </td>
-            <td data-label="Actions">
-                <button>Edit</button>
-                <button>Delete</button>
-            </td>
-        `;
-
-        movieTableBody.appendChild(row);
-    });
-}
-
-// Fetch movies when the script loads
-fetchMovies();
