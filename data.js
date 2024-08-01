@@ -5,6 +5,7 @@ const BASE_URL= 'https://api.jsonbin.io/v3/b/66a74811e41b4d34e4188d4c';
 let movies = [];
 let editingIndex = null;
 
+//AXIOS-ASYNC-AWAIT -----------------------------------------------
 async function fetchMovies() {
     try {
         const response = await axios.get(BASE_URL, {
@@ -18,7 +19,7 @@ async function fetchMovies() {
         console.error('Error fetching movies:', error);
     }
 }
-
+//Using 'put'
 async function saveMovies() {
     try {
         await axios.put(BASE_URL, movies, {
@@ -31,25 +32,25 @@ async function saveMovies() {
         console.error('Error saving movies:', error.response.data);
     }
 }
-
+// working on CRUD - add ---------------------------------------------
 function addMovie(movie) {
     movies.push(movie);
     saveMovies();
     renderMovies();
 }
-
+// update
 function updateMovie(index, updatedMovie) {
     movies[index] = updatedMovie;
     saveMovies();
     renderMovies();
 }
-
+// delete
 function deleteMovie(index) {
     movies.splice(index, 1);
     saveMovies();
     renderMovies();
 }
-
+//increase and decrease ---------------------------------------------
 function increasePopularity(index) {
     if (movies[index].popularity < 5) {
         movies[index].popularity++;
@@ -65,7 +66,7 @@ function decreasePopularity(index) {
     saveMovies();
     renderMovies();
 }
-
+// rendermovies ------------------------------------------------------
 function renderMovies() {
     const movieTableBody = document.getElementById('movieTableBody');
     movieTableBody.innerHTML = '';

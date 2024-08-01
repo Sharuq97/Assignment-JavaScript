@@ -6,7 +6,7 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
     const year = document.getElementById('year').value.trim();
     const popularity = document.getElementById('popularity').value;
 
-    // Validate inputs
+    // Check for inputs , ensure nothing is left out ----------------------------------------
     const errors = [];
     if (title === '') {
         errors.push('Title is required.');
@@ -24,10 +24,7 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
     }
 
     const movie = {
-        title,
-        director,
-        year,
-        popularity: parseInt(popularity)
+        title, director, year, popularity: parseInt(popularity)
     };
 
     if (editingIndex === null) {
@@ -38,7 +35,7 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
         document.querySelector('form button').textContent = 'Add Movie';
     }
 
-    // Clear the form
+    // RESET
     document.getElementById('movieForm').reset();
 });
 
@@ -55,13 +52,14 @@ document.getElementById('movieTableBody').addEventListener('click', function(eve
     }
 });
 
+// confirm delete pop-up
 function confirmDelete(index) {
     const confirmDelete = confirm('Are you sure you want to delete this movie?');
     if (confirmDelete) {
         deleteMovie(index);
     }
 }
-
+// editing for each id element.
 function editMovie(index) {
     const movie = movies[index];
     document.getElementById('title').value = movie.title;
@@ -70,16 +68,16 @@ function editMovie(index) {
     document.getElementById('popularity').value = movie.popularity;
     editingIndex = index;
 
-    // Set the form button text to "Update Movie"
+// update part when editing, the add button changes to edit
     document.querySelector('form button').textContent = 'Update Movie';
 }
-
+// adding part
 function addMovie(movie) {
     movies.push(movie);
     saveMovies();
     renderMovies();
 }
-
+// updateing part
 function updateMovie(index, updatedMovie) {
     movies[index] = updatedMovie;
     saveMovies();
