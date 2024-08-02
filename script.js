@@ -17,7 +17,6 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
     if (!popularity || isNaN(popularity) || popularity < 1 || popularity > 5) {
         errors.push('Popularity must be a number between 1 and 5.');
     }
-
     if (errors.length > 0) {
         alert(errors.join('\n'));
         return;
