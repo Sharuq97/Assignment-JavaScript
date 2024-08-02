@@ -24,7 +24,10 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
     }
 
     const movie = {
-        title, director, year, popularity: parseInt(popularity)
+        title, 
+        director, 
+        year, 
+        popularity: parseInt(popularity)
     };
 
     if (editingIndex === null) {
@@ -78,7 +81,6 @@ function updateMovie(index, updatedMovie) {
     movies[index] = updatedMovie;
     saveMovies();
     renderMovies();
-
     // Reset the form button text to "Add Movie"
     document.querySelector('form button').textContent = 'Add Movie';
 }

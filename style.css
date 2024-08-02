@@ -7,6 +7,7 @@ body {
 
 h1 {
     text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 form {
@@ -18,7 +19,7 @@ form {
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(242, 26, 26, 0.1);
 }
 
 form label {
@@ -77,28 +78,18 @@ td button {
     border-radius: 4px;
     cursor: pointer;
 }
-
+/*edit button colour change*/
 td button:hover {
     background-color: #0056b3;
 }
-
+/*delete buttons*/
 td button:nth-child(2) {
     background-color: #dc3545;
 }
-
+/*delete button colour change*/
 td button:nth-child(2):hover {
     background-color: #c82333;
 }
-
-td button:nth-child(3), td button:nth-child(4) {
-    background-color: #ffc107;
-    color: #000;
-}
-
-td button:nth-child(3):hover, td button:nth-child(4):hover {
-    background-color: #e0a800;
-}
-
 /* Mobile Responsive parts */
 @media (max-width: 350px) {
     form {
