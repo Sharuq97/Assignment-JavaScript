@@ -2,6 +2,7 @@ const API_KEY = '$2a$10$HmXRRZDaepDvFzcLUKL6vO4oM37jfk91O/MuoWFsGIWYkQTqzibby';
 const JSON_BIN = '66a74811e41b4d34e4188d4c';
 const BASE_URL= 'https://api.jsonbin.io/v3/b/66a74811e41b4d34e4188d4c';
 
+//array
 let movies = [];
 let editingIndex = null;
 
@@ -32,7 +33,7 @@ async function saveMovies() {
         console.error('Error saving movies:', error.response.data);
     }
 }
-// working on CRUD - add ---------------------------------------------
+// working on CRUD - add --------------------------------------------- 
 function addMovie(movie) {
     movies.push(movie);
     saveMovies();
